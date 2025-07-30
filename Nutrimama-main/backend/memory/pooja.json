@@ -1,0 +1,88 @@
+{
+  "name": "pooja",
+  "history": [
+    {
+      "timestamp": "2025-06-15T00:17:15.231902",
+      "age": 23,
+      "pregnant": "yes",
+      "risk": "Low",
+      "available_foods": [
+        "rice",
+        "dal",
+        "eggs",
+        "fruits",
+        "vegitables"
+      ],
+      "recommendations": {
+        "take": [
+          "Regular homemade meals",
+          "Moderate exercise",
+          "Seasonal fruits and water intake"
+        ],
+        "avoid": [
+          "Skipping meals",
+          "Unnecessary supplements"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-06-15T00:21:35.727652",
+      "age": 23,
+      "pregnant": "yes",
+      "risk": "Moderate",
+      "available_foods": [
+        "rice",
+        "dal",
+        "roti",
+        "vegitables",
+        "eggs",
+        "fruits"
+      ],
+      "recommendations": {
+        "take": [
+          "Balanced diet with vegetables, dal, and fruits",
+          "Drink at least 2.5L water",
+          "Moderate supplements"
+        ],
+        "avoid": [
+          "Overeating fatty or salty food"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-06-15T01:54:20.179819",
+      "age": 23,
+      "pregnant": "yes",
+      "risk": "Low",
+      "available_foods": [
+        "rice",
+        "pulses",
+        "eggs",
+        "fruits"
+      ],
+      "recommendations": {
+        "take": [
+          "Regular homemade meals",
+          "Moderate exercise",
+          "Seasonal fruits and water intake"
+        ],
+        "avoid": [
+          "Skipping meals",
+          "Unnecessary supplements"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    }
+  ]
+}

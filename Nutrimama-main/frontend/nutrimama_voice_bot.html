@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NutriMama Voice Bot (Hindi & English)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+    #chat-box {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      min-height: 300px;
+      background: #f9f9f9;
+      overflow-y: auto;
+    }
+    .msg { margin: 10px 0; }
+    .bot { color: green; }
+    .user { color: blue; }
+    #speak-btn, #lang-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #lang-btn { background: #ffd54f; color: #333; margin-right: 10px; }
+    #speak-btn { background: #00796b; color: #fff; }
+  </style>
+</head>
+<body>
+
+<h2>🌿 NutriMama Voice Bot (Bilingual)</h2>
+<div id="chat-box"></div>
+<div>
+  <button id="lang-btn">🌐 Hindi</button>
+  <button id="speak-btn">🎙 Speak Answer</button>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chat-box");
+  const speakBtn = document.getElementById("speak-btn");
+  const langBtn = document.getElementById("lang-btn");
+
+  let language = "hi-IN"; // default Hindi
+  let step = 0;
+  const userData = {};
+
+  const questions = {
+    "hi-IN": [
+      "आपका नाम क्या है?",
+      "आपकी उम्र क्या है?",
+      "क्या आप गर्भवती हैं? (हां/नहीं)",
+      "आप दिन में कितने भोजन करती हैं?",
+      "आप रोज कितने लीटर पानी पीती हैं?",
+      "क्या आप आयरन की गोलियाँ लेती हैं? (हां/नहीं)",
+      "आपकी आय का स्तर क्या है? (low/mid/high)",
+      "आपके पास कौन-कौन से भोजन नियमित रूप से उपलब्ध हैं?"
+    ],
+    "en-US": [
+      "What is your name?",
+      "What is your age?",
+      "Are you pregnant? (yes/no)",
+      "How many meals do you eat per day?",
+      "How much water (in liters) do you drink daily?",
+      "Do you take iron tablets? (yes/no)",
+      "What is your income level? (low/mid/high)",
+      "Which foods are available to you regularly?"
+    ]
+  };
+
+  function addMessage(text, sender) {
+    const div = document.createElement("div");
+    div.className = "msg " + sender;
+    div.innerText = `${sender === 'bot' ? 'Bot: ' : 'You: '}${text}`;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function speak(text) {
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = language;
+    speechSynthesis.speak(utter);
+  }
+
+  function askNextQuestion() {
+    if (step < questions[language].length) {
+      const q = questions[language][step];
+      addMessage(q, 'bot');
+      speak(q);
+    } else {
+      sendForPrediction();
+    }
+  }
+
+  function startRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Your browser doesn't support Speech Recognition");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = language;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      addMessage(transcript, 'user');
+      saveAnswer(transcript);
+      step++;
+      askNextQuestion();
+    };
+
+    recognition.onerror = function(event) {
+      addMessage("Error: " + event.error, 'bot');
+    };
+  }
+
+  function saveAnswer(answer) {
+    switch (step) {
+      case 0: userData.name = answer; break;
+      case 1: userData.age = parseInt(answer); break;
+      case 2: userData.pregnant = answer.toLowerCase(); break;
+      case 3: userData.meals = parseInt(answer); break;
+      case 4: userData.water = parseFloat(answer); break;
+      case 5: userData.iron = answer.toLowerCase(); break;
+      case 6: userData.income = answer.toLowerCase(); break;
+      case 7: userData.available_foods = answer.toLowerCase(); break;
+    }
+  }
+
+  async function sendForPrediction() {
+    addMessage("📡 Sending your data to NutriMama...", "bot");
+    try {
+      const res = await fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData)
+      });
+      const data = await res.json();
+      addMessage(data.response, "bot");
+      speak(data.response);
+    } catch (err) {
+      addMessage("❌ Could not reach NutriMama backend.", "bot");
+    }
+  }
+
+  // Event Listeners
+  speakBtn.onclick = startRecognition;
+  langBtn.onclick = () => {
+    language = (language === "hi-IN") ? "en-US" : "hi-IN";
+    langBtn.textContent = language === "hi-IN" ? "🌐 Hindi" : "🌐 English";
+    step = 0;
+    chatBox.innerHTML = "";
+    addMessage("Hi! I'm NutriMama. Let's start.", "bot");
+    askNextQuestion();
+  };
+
+  // Auto-start in Hindi
+  window.onload = () => {
+    addMessage("Hi! I'm NutriMama. Let's begin.", "bot");
+    askNextQuestion();
+  };
+</script>
+
+</body>
+</html>

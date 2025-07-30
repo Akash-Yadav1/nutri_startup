@@ -1,0 +1,36 @@
+{
+  "High": {
+    "take": [
+      "Iron-rich foods: spinach, lentils, beetroot",
+      "Folic acid supplements",
+      "Calcium: milk, sesame seeds, ragi",
+      "Protein: eggs, pulses, paneer"
+    ],
+    "avoid": [
+      "Caffeine (tea/coffee)",
+      "Deep fried snacks",
+      "Junk food and sugary drinks"
+    ]
+  },
+  "Moderate": {
+    "take": [
+      "Balanced diet with vegetables, dal, and fruits",
+      "Drink at least 2.5L water",
+      "Moderate supplements"
+    ],
+    "avoid": [
+      "Overeating fatty or salty food"
+    ]
+  },
+  "Low": {
+    "take": [
+      "Regular homemade meals",
+      "Moderate exercise",
+      "Seasonal fruits and water intake"
+    ],
+    "avoid": [
+      "Skipping meals",
+      "Unnecessary supplements"
+    ]
+  }
+}
