@@ -1,0 +1,32 @@
+{
+  "name": "Meenu",
+  "history": [
+    {
+      "timestamp": "2025-06-19T15:24:13.589781",
+      "age": 44,
+      "pregnant": "yes",
+      "risk": "Low",
+      "available_foods": [
+        "rice",
+        "chappati",
+        "eggs",
+        "vegitables."
+      ],
+      "recommendations": {
+        "take": [
+          "Regular homemade meals",
+          "Moderate exercise",
+          "Seasonal fruits and water intake"
+        ],
+        "avoid": [
+          "Skipping meals",
+          "Unnecessary supplements"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    }
+  ]
+}

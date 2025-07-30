@@ -1,0 +1,14 @@
+{
+  "calcium": {
+    "default": ["milk", "paneer", "curd"],
+    "alternatives": ["ragi", "til seeds", "mustard leaves"]
+  },
+  "iron": {
+    "default": ["spinach", "beetroot", "dates"],
+    "alternatives": ["drumstick leaves", "bathua", "til", "jaggery"]
+  },
+  "protein": {
+    "default": ["eggs", "meat", "paneer", "dal"],
+    "alternatives": ["chana", "soya chunks", "sprouted moong"]
+  }
+}

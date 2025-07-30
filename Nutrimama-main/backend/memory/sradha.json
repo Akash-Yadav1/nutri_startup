@@ -1,0 +1,32 @@
+{
+  "name": "Sradha",
+  "history": [
+    {
+      "timestamp": "2025-07-07T11:42:41.210906",
+      "age": 36,
+      "pregnant": "yes",
+      "risk": "Moderate",
+      "available_foods": [
+        "rice",
+        "daal",
+        "roti",
+        "dahi",
+        "milk",
+        "paneer"
+      ],
+      "recommendations": {
+        "take": [
+          "Balanced diet with vegetables, dal, and fruits",
+          "Drink at least 2.5L water",
+          "Moderate supplements"
+        ],
+        "avoid": [
+          "Overeating fatty or salty food"
+        ],
+        "alternatives": [
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    }
+  ]
+}

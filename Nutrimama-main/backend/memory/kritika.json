@@ -1,0 +1,32 @@
+{
+  "name": "Kritika",
+  "history": [
+    {
+      "timestamp": "2025-06-20T09:24:48.354207",
+      "age": 25,
+      "pregnant": "yes",
+      "risk": "Low",
+      "available_foods": [
+        "rice",
+        "dal",
+        "vegitables",
+        "fruits"
+      ],
+      "recommendations": {
+        "take": [
+          "Regular homemade meals",
+          "Moderate exercise",
+          "Seasonal fruits and water intake"
+        ],
+        "avoid": [
+          "Skipping meals",
+          "Unnecessary supplements"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    }
+  ]
+}

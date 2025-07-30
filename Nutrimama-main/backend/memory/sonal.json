@@ -1,0 +1,35 @@
+{
+  "name": "Sonal",
+  "history": [
+    {
+      "timestamp": "2025-06-15T02:14:36.667848",
+      "age": 30,
+      "pregnant": "no",
+      "risk": "High",
+      "available_foods": [
+        "rice",
+        "dal",
+        "fruits",
+        "salad",
+        "maggi"
+      ],
+      "recommendations": {
+        "take": [
+          "Iron-rich foods: spinach, lentils, beetroot",
+          "Folic acid supplements",
+          "Calcium: milk, sesame seeds, ragi",
+          "Protein: eggs, pulses, paneer"
+        ],
+        "avoid": [
+          "Caffeine (tea/coffee)",
+          "Deep fried snacks",
+          "Junk food and sugary drinks"
+        ],
+        "alternatives": [
+          "For CALCIUM, consider: ragi, til seeds, mustard leaves",
+          "For IRON, consider: drumstick leaves, bathua, til, jaggery"
+        ]
+      }
+    }
+  ]
+}
