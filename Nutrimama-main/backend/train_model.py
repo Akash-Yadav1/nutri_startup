@@ -3,7 +3,7 @@ import os
 from catboost import CatBoostClassifier, Pool
 
 # Load dataset
-df = pd.read_csv("nutri_training_dataset.csv")
+df = pd.read_csv("nutri_startup\\Nutrimama-main\\backend\\nutri_training_dataset.csv")
 
 # Define features and target
 X = df.drop("risk", axis=1)

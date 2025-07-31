@@ -16,10 +16,10 @@ model.load_model(model_path)
 model_loaded = True
 
 # 📘 Load nutrition guidance and alternatives
-with open(os.path.join("recommendation", "nutrition_guidelines.json")) as f:
+with open("nutri_startup\\Nutrimama-main\\backend\\recommendation\\nutrition_guidelines.json") as f:
     nutrition_guide = json.load(f)
 
-with open(os.path.join("recommendation", "nutrient_alternatives.json")) as f:
+with open("nutri_startup\\Nutrimama-main\\backend\\recommendation\\nutrient_alternatives.json") as f:
     nutrient_map = json.load(f)
 
 os.makedirs("memory", exist_ok=True)
